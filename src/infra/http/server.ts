@@ -1,3 +1,4 @@
+import { getUploads } from '@/app/functions/get-uploads'
 import { fastifyCors } from '@fastify/cors'
 import fastifyMultipart from '@fastify/multipart'
 import fastifySwagger from '@fastify/swagger'
@@ -8,6 +9,7 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
+import { getUploadsRoute } from './routes/get-uploads'
 import { transformSwaggerSchema } from './routes/transform-swagger-schema'
 import { uploadImageRoute } from './routes/upload-image'
 
@@ -53,6 +55,7 @@ server.register(fastifySwaggerUi, {
 })
 
 server.register(uploadImageRoute)
+server.register(getUploadsRoute)
 
 server.listen({ port: 3333, host: '0.0.0.0' }).then(() => {
   console.log('Server is running at http://localhost:3333')
