@@ -1,7 +1,5 @@
 import { getUploads } from '@/app/functions/get-uploads'
-import { db } from '@/infra/db'
-import { schema } from '@/infra/db/schemas'
-import { isRight, unwrapEither } from '@/shared/either'
+import { unwrapEither } from '@/shared/either'
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
 
